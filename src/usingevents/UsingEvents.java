@@ -28,18 +28,7 @@ public class UsingEvents extends Frame
     private List list;
     private Button remove;
     
-    //--------------------------------------------------------------------------
-    
-    class MyListener implements ActionListener
-    {
-        public void actionPerformed(ActionEvent e) 
-        {
-          list.add(book.getText());
-        }
-        
-    }
-    
-    //--------------------------------------------------------------------------
+    //--------------------------------------------------------------------------    
     
     public UsingEvents()
     {
@@ -80,9 +69,36 @@ public class UsingEvents extends Frame
         
         //----------------------------------------------------------------------
         
-        add.addActionListener(new MyListener());
+        add.addActionListener(new ActionListener()
+        {
+        public void actionPerformed(ActionEvent e) 
+        {
+          list.add(book.getText());
+          book.setText("");
+        }        
+        });
+        
+        //----------------------------------------------------------------------
+         remove.addActionListener(new ActionListener()
+         {
+             public void actionPerformed(ActionEvent e)
+             {
+                 list.remove(list.getSelectedIndex());
+             }
+         });
+         
+         //----------------------------------------------------------------------
+        
+        book.addActionListener(new ActionListener()
+        {
+        public void actionPerformed(ActionEvent e) 
+        {
+          list.add(book.getText());
+          book.setText("");
+        }        
+        });
+        
     }
-
     
     public static void main(String[] args) 
     {    
