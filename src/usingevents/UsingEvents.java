@@ -5,17 +5,27 @@
  */
 package usingevents;
 
+import java.awt.Button;
+import java.awt.Frame;
+import java.awt.List;
+import java.awt.TextField;
+
 /**
  *
  * @author oop
  */
-public class UsingEvents {
+public class UsingEvents extends Frame 
+{
+    private TextField book;
+    private Button add;
+    private List list;
+    private Button remove;
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-        // TODO code application logic here
+    
+    public static void main(String[] args) 
+    {       
+        
+        
     }
     
 }
