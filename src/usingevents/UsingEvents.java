@@ -12,6 +12,8 @@ import java.awt.Label;
 import java.awt.List;
 import java.awt.Panel;
 import java.awt.TextField;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 
 /**
  *
@@ -44,14 +46,30 @@ public class UsingEvents extends Frame
         
         setTitle("Book Register");
         setSize(400, 400);
+        events();
         setVisible(true);
         
+    }
+    
+    //--------------------------------------------------------------------------
+    
+    private void events()
+    {
+        //-----------Closing windows and system---------------------------------
+        addWindowListener( new WindowAdapter() 
+        {
+            public void windowClosing(WindowEvent e)
+            {
+                dispose();
+                System.exit(0);
+            }
+        });
     }
 
     
     public static void main(String[] args) 
-    {         
-        
+    {    
+        new UsingEvents();        
     }
     
 }
