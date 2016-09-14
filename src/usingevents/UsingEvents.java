@@ -12,6 +12,8 @@ import java.awt.Label;
 import java.awt.List;
 import java.awt.Panel;
 import java.awt.TextField;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
@@ -25,6 +27,17 @@ public class UsingEvents extends Frame
     private Button add;
     private List list;
     private Button remove;
+    
+    //--------------------------------------------------------------------------
+    
+    class MyListener implements ActionListener
+    {
+        public void actionPerformed(ActionEvent e) 
+        {
+          list.add(book.getText());
+        }
+        
+    }
     
     //--------------------------------------------------------------------------
     
@@ -64,6 +77,10 @@ public class UsingEvents extends Frame
                 System.exit(0);
             }
         });
+        
+        //----------------------------------------------------------------------
+        
+        add.addActionListener(new MyListener());
     }
 
     
