@@ -5,9 +5,12 @@
  */
 package usingevents;
 
+import java.awt.BorderLayout;
 import java.awt.Button;
 import java.awt.Frame;
+import java.awt.Label;
 import java.awt.List;
+import java.awt.Panel;
 import java.awt.TextField;
 
 /**
@@ -20,11 +23,34 @@ public class UsingEvents extends Frame
     private Button add;
     private List list;
     private Button remove;
+    
+    //--------------------------------------------------------------------------
+    
+    public UsingEvents()
+    {
+        Panel p = new Panel(new BorderLayout());
+        book    = new TextField();
+        add     = new Button("Add");
+        list    = new List();
+        remove  = new Button("Remove");
+        
+        p.add(new Label("Tittle"), BorderLayout.WEST);
+        p.add( book,               BorderLayout.CENTER);
+        p.add(add,                 BorderLayout.EAST);
+        
+        add(p, BorderLayout.NORTH);
+        add(list, BorderLayout.CENTER);
+        add(remove,BorderLayout.SOUTH);
+        
+        setTitle("Book Register");
+        setSize(400, 400);
+        setVisible(true);
+        
+    }
 
     
     public static void main(String[] args) 
-    {       
-        
+    {         
         
     }
     
