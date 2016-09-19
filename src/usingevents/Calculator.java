@@ -1,12 +1,11 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package usingevents;
 
 import java.awt.BorderLayout;
 import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -18,10 +17,15 @@ import javax.swing.JPanel;
  */
 public class Calculator extends JFrame 
 {
+    //--------------------------------------------------------------------------    
+    public static int NUMBER=1;
+    public static int OPERATOR=2;
+    //--------------------------------------------------------------------------    
     private JLabel display;
     private JButton operator[];
     private JButton numbers[];   
     private JButton clear;
+    private int previews;
     
     //--------------------------------------------------------------------------
     
@@ -66,7 +70,37 @@ public class Calculator extends JFrame
     
     private void events()
     {
-        
+        addWindowListener(new WindowAdapter() {
+            public void windowClosing(WindowEvent e){
+                System.exit(0);               
+            }
+        });
+        //----------------------------------------------------------------------
+        for(int i=0; i<10; i++)
+        {
+            numbers[i].addActionListener(new ActionListener() {
+               public void actionPerformed(ActionEvent e) {
+                   if(previews==NUMBER)
+                   {
+                       display.setText(display.getText()+e.getActionCommand());
+                   }
+                   else
+                   {
+                       display.setText(e.getActionCommand());
+                       previews=NUMBER;
+                   }
+               }
+            });            
+        }
+        //----------------------------------------------------------------------
+        for(int i=0; i<5; i++)
+        {
+            operator[i].addActionListener(new ActionListener() {
+               public void actionPerformed(ActionEvent e) {
+                   previews=OPERATOR;
+               }
+            });            
+        }
     }
     
     //--------------------------------------------------------------------------
