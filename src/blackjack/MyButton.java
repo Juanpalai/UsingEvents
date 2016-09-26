@@ -5,22 +5,30 @@
  */
 package blackjack;
 
+import javax.swing.JButton;
+
 /**
  *
  * @author oop
  */
-public class MyButton 
+public class MyButton extends JButton
 {
     private int v;
     
     public MyButton(int v)
     {
-        
+        super("    ");
+        this.v = v;        
     }
     
     public void show ()
     {
-        
+        setText(""+v);
+    }
+    
+    public int valve()
+    {
+        return v;
     }
     
 }
